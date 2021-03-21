@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <main>
+    <h1>{{ title }}</h1>
+    {{ content }}
+    {% assign collectionVim = collections.vim %}
+    {% assign collectionTmux = collections.tmux %}
+    {% assign previousTmuxPost = collectionTmux | getPreviousCollectionItem: page %}
+    {% assign previousVimPost = collectionVim | getPreviousCollectionItem: page %}
+    {% assign nextVimPost = collectionVim | getNextCollectionItem: page %}
+    {% assign nextTmuxPost = collectionTmux | getNextCollectionItem: page %}
+
+    <nav>
+      {% if previousTmuxPost %}
+        <a id="previous" href="{{previousTmuxPost.url }}"><</a>
+      {% endif %}
+      {% if nextTmuxPost %}
+        <a id="next" href="{{ nextTmuxPost.url }}">></a>
+      {% endif %}
+
+      {% if previousVimPost %}
+        <a id="previous" href="{{ previousVimPost.url}}"><</a>
+      {% endif %}
+      {% if nextVimPost %}
+        <a id="next" href="{{ nextVimPost.url }}">></a>
+      {% endif %}
+    </nav>
+  </main>
+  <script src="/scripts/keyboard.js" defer></script>
+</body>
+</html>

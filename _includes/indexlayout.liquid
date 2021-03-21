@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <main>
+    <h1>{{ title }}</h1>
+    {{ content }}
+    {% assign collectionVim = collections.vim %}
+    {% assign collectionTmux = collections.tmux %}
+    {% assign previousTmuxPost = collectionVim | getPreviousCollectionItem: page %}
+    {% assign previousVimPost = collectionTmux | getPreviousCollectionItem: page %}
+    {% assign nextVimPost = collectionVim | getNextCollectionItem: page %}
+    {% assign nextTmuxPost = collectionTmux | getNextCollectionItem: page %}
+
+    {% if previousTmuxPost %}Previous Blog Post: <a href="{{
+        previousTmuxPost.url }}">{{ previousTmuxPost.data.title }}</a>{% endif %}
+    {% if nextTmuxPost %}Next Blog Post: <a href="{{ nextTmuxPost.url }}">{{
+        nextTmuxPost.data.title }}</a>{% endif %}
+
+    {% if previousVimPost %}Previous Blog Post: <a href="{{ previousVimPost.url
+        }}">{{ previousVimPost.data.title }}</a>{% endif %}
+    {% if nextVimPost %}Next Blog Post: <a href="{{ nextVimPost.url }}">{{
+        nextVimPost.data.title }}</a>{% endif %}
+  </main>
+</body>
+</html>
