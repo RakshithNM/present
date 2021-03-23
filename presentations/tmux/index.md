@@ -1,5 +1,6 @@
 ---
 title: TMUX
+description: All tmux slides
 tags: presentations
 ---
 

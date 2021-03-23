@@ -16,7 +16,22 @@
 
   <!-- Status Bar Style (see Supported Meta Tags below for available values) -->
   <!-- Has no effect unless you have the previous meta tag -->
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:url" content="{{ page.url }}" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:image" content="/static/presnt.jpeg" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@rakshithbellare">
+  <meta name="twitter:creator" content="@rakshithbellare">
+  <meta name="twitter:url" content="{{ page.url }}">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:image" content="/static/presnt.jpeg">
+
   <title>{{ title }}</title>
 
   <link rel="stylesheet" href="/styles/main.css">

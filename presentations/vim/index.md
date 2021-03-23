@@ -1,5 +1,6 @@
 ---
 title: VIM
+description: All vim presentations
 tags: presentations
 ---
 
