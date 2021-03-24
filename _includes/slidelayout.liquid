@@ -47,21 +47,24 @@
     {% assign nextVimPost = collectionVim | getNextCollectionItem: page %}
     {% assign nextTmuxPost = collectionTmux | getNextCollectionItem: page %}
 
-    <nav>
-      {% if previousTmuxPost %}
-        <a id="previous" href="{{previousTmuxPost.url }}"><</a>
-      {% endif %}
-      {% if nextTmuxPost %}
-        <a id="next" href="{{ nextTmuxPost.url }}">></a>
-      {% endif %}
 
-      {% if previousVimPost %}
-        <a id="previous" href="{{ previousVimPost.url}}"><</a>
-      {% endif %}
-      {% if nextVimPost %}
-        <a id="next" href="{{ nextVimPost.url }}">></a>
-      {% endif %}
-    </nav>
+    {% if previousVimPost or previousTmuxPost or nextVimPost or nextTmuxPost %}
+      <nav>
+        {% if previousTmuxPost %}
+          <a id="previous" href="{{previousTmuxPost.url }}">⏮️</a>
+        {% endif %}
+        {% if nextTmuxPost %}
+          <a id="next" href="{{ nextTmuxPost.url }}">⏭️</a>
+        {% endif %}
+
+        {% if previousVimPost %}
+          <a id="previous" href="{{ previousVimPost.url}}">⏮️</a>
+        {% endif %}
+        {% if nextVimPost %}
+          <a id="next" href="{{ nextVimPost.url }}">⏭️</a>
+        {% endif %}
+      </nav>
+    {% endif %}
   </main>
   <script src="/scripts/keyboard.js" defer></script>
 </body>
